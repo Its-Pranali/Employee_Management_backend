@@ -22,7 +22,7 @@ export const updateUser=async(req,res)=>{
         const data=await User.findByPk(req.params.id);
         if(!data){
             return res.status(201).json({
-                success:true,
+                success:false,
                 message:"Data not found",
                 data:data,
             });
@@ -53,6 +53,28 @@ export const updateUser=async(req,res)=>{
 export const deleteUser=async(req,res)=>{
     try{
         const data = await User.findByPk(req.params.id);
-        
+        if(data){
+            return res.status(201).json({
+                success: false,
+                message:"Data not found",
+                data:data,
+            });
+        }
+
+        data.status=0;
+        await data.save();
+
+        return res.status(200).json({
+            success:true,
+            message:"Data deleted successfully",
+            data:data,
+        });
+    }
+    catch(error){
+        return res.status(500).json({
+            success:false,
+            message:"Error while deleting data",
+            error:error.message,
+        });
     }
 }
