@@ -10,9 +10,29 @@ const Employee=sequelize.define(
             autoIncrement: true,
         },
 
-        role_name: {
+        user_id: {
             type: DataTypes.STRING(255),
             allowNull: false,
+        },
+
+        department:{
+            type:DataTypes.STRING(255),
+            allowNull:true,
+        },
+
+        designation:{
+            type:DataTypes.STRING(255),
+            allowNull:false,
+        },
+
+        mobile_no:{
+            type:DataTypes.STRING(255),
+            allowNull:true,
+        },
+
+        joining_date:{
+            type:DataTypes.STRING(255),
+            allowNull:true,
         },
 
         status: {
@@ -22,7 +42,7 @@ const Employee=sequelize.define(
         },
     },
     {
-        tableName: "roles",
+        tableName: "employees",
         timestamps: true,
         createdAt: "created_at",
         updatedAt: "updated_at",
