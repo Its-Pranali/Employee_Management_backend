@@ -6,6 +6,7 @@ import RoleRoute from "./routes/RoleRoute.js";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import DepartmentRoute from "./routes/DepartmentRoute.js";
+import ProjectRoute from "./routes/ProjectRoute.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use("/api",AuthRoute);
 app.use("/api",RoleRoute);
 app.use("/api",EmployeeRoute);
 app.use("/api",DepartmentRoute);
+app.use("/api",ProjectRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

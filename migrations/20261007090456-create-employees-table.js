@@ -22,7 +22,7 @@ export default {
           onDelete: 'CASCADE',
         },
         department: {
-          type: Sequelize.STRING(100),
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
         designation: {
